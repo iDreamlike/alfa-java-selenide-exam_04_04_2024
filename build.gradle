@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group = 'ru.alfabank'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation platform('org.junit:junit-bom:5.9.1')
+    implementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'com.codeborne:selenide:7.2.3'
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty 'browserVersion', project.findProperty('browserVersion') ?: '114'
+}
